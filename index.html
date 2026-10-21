@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0e10">
+<title>За 6 минут ты узнаешь, почему не держишь слово перед собой</title>
+<meta name="description" content="Без мотивации, без 5 утра и без «с понедельника». 6 минут о том, почему ты не держишь слово перед собой.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="За 6 минут ты узнаешь, почему не держишь слово перед собой">
+<meta property="og:description" content="Без мотивации, без 5 утра и без «с понедельника». Михаил Семенченко">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d0e10'/%3E%3Cpath d='M12 9v14l11-7z' fill='%23e9a23b'/%3E%3C/svg%3E">
+<style>html, body { margin: 0; background: #0d0e10; }</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { background: #0d0e10; }
+  #vsl {
+    --bg: #0d0e10; --surface: #17191c; --text: #f1efea; --muted: #9b988f;
+    --accent: #e9a23b; --accent-soft: rgba(233,162,59,.16); --accent-ink: #17110a;
+    color: var(--text);
+    font-family: Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100svh;
+    background:
+      radial-gradient(120% 60% at 50% -10%, rgba(233,162,59,.10), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
+      var(--bg);
+  }
+  #vsl * { box-sizing: border-box; margin: 0; }
+
+  /* Плашка сверху */
+  #vsl .vsl-notice { position: sticky; top: 0; z-index: 5; display: flex; justify-content: center; padding: env(safe-area-inset-top) 12px 0; pointer-events: none; }
+  #vsl .vsl-notice span {
+    display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 0 0 12px 12px;
+    background: var(--accent); color: var(--accent-ink);
+    font-size: 12.5px; font-weight: 700; line-height: 1.25; text-align: center;
+    box-shadow: 0 6px 20px -8px rgba(0,0,0,.6);
+  }
+  #vsl .vsl-notice i { flex: none; width: 16px; height: 16px; border-radius: 50%; background: var(--accent-ink); color: var(--accent); font: 700 11px/16px Manrope, sans-serif; font-style: normal; text-align: center; }
+
+  #vsl .vsl-page { max-width: 480px; margin: 0 auto; padding: 22px 16px max(160px, 24svh, env(safe-area-inset-bottom)); text-align: center; }
+
+  /* Автор */
+  #vsl .vsl-author { display: inline-flex; align-items: center; gap: 10px; }
+  #vsl .vsl-ava { width: 40px; height: 40px; border-radius: 50%; background: var(--surface) center/cover no-repeat; border: 1.5px solid var(--accent); display: grid; place-items: center; font: 600 14px/1 Oswald, sans-serif; color: var(--accent); }
+  #vsl .vsl-name { font-weight: 700; font-size: 15px; letter-spacing: .01em; color: var(--text); }
+  #vsl .vsl-role { display: block; font-size: 12px; font-weight: 500; color: var(--muted); text-align: left; }
+  #vsl .vsl-role[hidden] { display: none; }
+
+  #vsl h1 {
+    margin-top: 18px; color: var(--text);
+    font-family: Oswald, "Arial Narrow", sans-serif; font-weight: 600; text-transform: uppercase;
+    font-size: clamp(25px, 7.4vw, 34px); line-height: 1.12; letter-spacing: .005em; text-wrap: balance;
+  }
+  #vsl h1 em { font-style: normal; color: var(--accent); }
+  #vsl .laddered .ln { display: block; white-space: nowrap; }
+
+  #vsl .vsl-sub { margin: 14px auto 0; max-width: 380px; font-size: 15px; line-height: 1.45; color: var(--muted); font-weight: 600; }
+
+  /* Плеер Kinescope 16:9 */
+  #vsl .vsl-frame { margin-top: 22px; padding: 6px; border-radius: 22px; border: 1px dashed rgba(233,162,59,.35); }
+  #vsl .vsl-player { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+  #vsl .vsl-player iframe, #vsl .vsl-player > div { position: absolute; inset: 0; width: 100% !important; height: 100% !important; border: 0; }
+
+  #vsl .vsl-cta {
+    cursor: pointer; display: block; margin-top: 20px; padding: 20px; border-radius: 14px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none; text-align: center;
+    font-family: Oswald, sans-serif; font-weight: 600; text-transform: uppercase; font-size: 21px; letter-spacing: .04em;
+    box-shadow: 0 14px 34px -14px rgba(233,162,59,.7), inset 0 -3px 0 rgba(0,0,0,.18);
+  }
+  #vsl .vsl-cta[hidden] { display: none; }
+  #vsl .vsl-cta.reveal { animation: vsl-rise .45s cubic-bezier(.2,.8,.2,1); }
+  @keyframes vsl-rise { from { opacity: 0; transform: translateY(12px); } }
+  #vsl .vsl-cta:active { transform: translateY(1px); }
+
+  /* Компьютер: одна колонка, видео 16:9 под заголовком, кнопка под видео */
+  @media (min-width: 960px) {
+    #vsl .vsl-notice span { font-size: 13.5px; padding: 9px 18px; }
+    #vsl .vsl-page { max-width: 1040px; padding: 28px 48px 40px; }
+    #vsl h1 { margin: 14px auto 0; max-width: 940px; font-size: clamp(34px, 3vw, 44px); line-height: 1.08; }
+    #vsl .vsl-sub { font-size: 16px; margin-top: 12px; max-width: 640px; }
+    #vsl .vsl-frame { margin: 26px auto 0; max-width: calc((100svh - 500px) * 16 / 9); min-width: 600px; }
+    #vsl .vsl-cta { max-width: 460px; margin: 22px auto 0; padding: 18px; transition: transform .15s, filter .15s; }
+    #vsl .vsl-cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  }
+</style>
+
+<div id="vsl">
+  <div class="vsl-notice"><span><i>!</i>Не закрывайте эту страницу, иначе видео закончится</span></div>
+  <main class="vsl-page">
+    <div class="vsl-author">
+      <span class="vsl-ava" id="vsl-ava"></span>
+      <span class="vsl-name" id="vsl-name"><span class="vsl-role" id="vsl-role"></span></span>
+    </div>
+    <h1 id="vsl-headline"></h1>
+    <p class="vsl-sub" id="vsl-sub">Без мотивации, без 5 утра и без «с понедельника». От человека, который провёл 15 мужиков к режиму за 4 месяца.</p>
+    <div class="vsl-frame"><div class="vsl-player"><div id="vsl-player"></div></div></div>
+    <a class="vsl-cta" id="vsl-cta" hidden>Войти в клуб</a>
+  </main>
+</div>
+
+<script>
+(function () {
+/* ================== НАСТРОЙКИ ================== */
+const CONFIG = {
+  kinescopeUrl: 'https://kinescope.io/odhZ8GsDj5qesAUGnAUoQS',  // ссылка на ролик в Kinescope
+  authorName: 'Михаил Семенченко',
+  authorRole: '',                 // строка под именем (можно пусто)
+  authorPhoto: 'data:image/jpeg;base64,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',
+  ctaUrl: '',                     // куда ведёт «Войти в клуб», напр. 'https://t.me/имя_бота'. Пусто — кнопка никуда не ведёт
+  revealAt: 240,                  // через сколько секунд просмотра со звуком показать кнопку (4:00)
+
+  // Пришёл из дожимов → кнопка сразу. Любой из признаков:
+  returnParam: 'r',               // ссылка вида ?r=1
+  returnUtm: /dozhim|dojim|remind|retarget/i,  // совпадение в utm_source / utm_medium / utm_campaign
+
+  passToCta: true,                // дописать к ссылке кнопки UTM
+  ymId: null,                     // номер счётчика Яндекс.Метрики (сам счётчик подключи в настройках проекта Tilda)
+  webhook: '',                    // свой эндпоинт: сюда POST-ом летят события (JSON)
+};
+
+// [обычная часть, выделенная цветом часть]. Можно добавить ещё варианты для теста — они начнут чередоваться
+const HEADLINES = [
+  ['За 6 минут ты узнаешь, почему не держишь слово перед собой, ', 'и что делают мужики, которые выполняют 5 из 7 обещаний через 6 недель'],
+];
+/* =============================================== */
+
+const qs = new URLSearchParams(location.search);
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+
+/* --- Заголовок: по очереди между посетителями, один посетитель всегда видит свой --- */
+function pickHeadline() {
+  const forced = parseInt(qs.get('h'), 10);
+  if (forced >= 1 && forced <= HEADLINES.length) return forced;
+  const saved = parseInt(store.get('vsl_h'), 10);
+  if (saved >= 1 && saved <= HEADLINES.length) return saved;
+  // Ротация по временным слотам: каждые 10 секунд следующий вариант → равномерная очередь без сервера
+  const v = (Math.floor(Date.now() / 10000) % HEADLINES.length) + 1;
+  store.set('vsl_h', v);
+  return v;
+}
+const H = pickHeadline();
+(function renderTop() {
+  const h1 = document.getElementById('vsl-headline');
+  const em = document.createElement('em');
+  h1.append(HEADLINES[H - 1][0]);
+  em.textContent = HEADLINES[H - 1][1];
+  h1.append(em);
+
+  const name = document.getElementById('vsl-name');
+  name.prepend(CONFIG.authorName);
+  const role = document.getElementById('vsl-role');
+  role.textContent = CONFIG.authorRole;
+  role.hidden = !CONFIG.authorRole;
+  const ava = document.getElementById('vsl-ava');
+  if (CONFIG.authorPhoto) ava.style.backgroundImage = `url("${CONFIG.authorPhoto}")`;
+  else ava.textContent = CONFIG.authorName.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+})();
+
+/* --- «Лесенка» на телефоне: строки по центру, каждая короче предыдущей --- */
+// Цифры, предлоги и частицы до 2 букв никогда не оставляем в конце строки,
+// трёхбуквенные — стараемся не оставлять (штраф)
+const HANG_HARD = /^(?:[а-яёa-z]{1,2}|\d+)$/i;
+const HANG_SOFT = /^(?:без|для|над|под|при|про|что|как)$/i;
+
+function ladder(el, opts) {
+  const { maxScale = 1, minScale = .7, minFill = .85, maxLines = 8, peak = 0, free = false } = opts;
+  // free — форма не важна: минимум строк и самый крупный шрифт, строки примерно равны
+  // peak — номер самой широкой строки (с нуля): до неё строки растут, после — убывают
+  if (!el._words) {
+    // запоминаем исходные слова и какие из них выделены цветом
+    el._words = [];
+    el.childNodes.forEach(n => {
+      const accent = n.nodeName === 'EM';
+      n.textContent.split(/\s+/).filter(Boolean).forEach(t => el._words.push({ t, accent }));
+    });
+  }
+  const words = el._words;
+  const render = lines => {
+    el.innerHTML = '';
+    lines.forEach(([a, b]) => {
+      const line = document.createElement('span');
+      line.className = 'ln';
+      let em = null;
+      for (let i = a; i < b; i++) {
+        const w = words[i];
+        const text = (i > a ? ' ' : '') + w.t;
+        if (w.accent) { if (!em) { em = document.createElement('em'); line.append(em); } em.append(text); }
+        else { em = null; line.append(text); }
+      }
+      el.append(line);
+    });
+  };
+
+  el.style.fontSize = '';
+  el.classList.remove('laddered');
+  if (!matchMedia('(max-width: 959px)').matches) { render([[0, words.length]]); return; }
+
+  const base = parseFloat(getComputedStyle(el).fontSize);
+  const W = el.clientWidth - 2;
+
+  // ширина любого отрезка слов при текущем шрифте
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;left:0;top:0';
+  el.append(probe);
+  const cache = {};
+  const width = (a, b) => cache[a + ':' + b] ??= (probe.textContent = words.slice(a, b).map(w => w.t).join(' '), probe.getBoundingClientRect().width);
+
+  // Ищем разбивку на строки: каждая уже предыдущей, ровный шаг, без висячих слов.
+  // L — допустимая ширина строки при базовом шрифте; чем она больше, тем мельче итоговый шрифт
+  const n = words.length;
+  let best = null, steps = 0, L = W;
+  function walk(start, prev, lines, minStep, soft) {
+    if (++steps > 80000) return;
+    if (start === n) {
+      const ws = lines.map(([a, b]) => width(a, b));
+      if (lines.length < 2 || Math.max(...ws) < L * minFill) return;
+      if (peak && lines.length < peak + 2) return;
+      if (free) {
+        const widest = Math.max(...ws);
+        const shrink = Math.max(0, 1 - Math.min(maxScale, W / widest));
+        const mean = ws.reduce((a, b) => a + b, 0) / ws.length;
+        const spread = ws.reduce((a, w) => a + (w - mean) ** 2, 0) / ws.length / (L * L);
+        const accentBreak = lines.some(([a]) => a > 0 && words[a].accent && !words[a - 1].accent) ? 1 : 0;
+        const score = shrink * 20 + spread * 30 + soft * 1.6 - accentBreak * .5;
+        if (!best || score < best.score) best = { score, lines: lines.slice(), widest };
+        return;
+      }
+      const diffs = ws.slice(1).map((w, i) => ws[i] - w);
+      const avg = diffs.reduce((s, d) => s + d, 0) / diffs.length;
+      const uneven = diffs.reduce((s, d) => s + (d - avg) ** 2, 0) / diffs.length / (L * L);
+      const lastShort = ws[ws.length - 1] < ws[0] * .3 ? 1 : 0;
+      const widest = Math.max(...ws);
+      const scale = Math.min(maxScale, W / widest);
+      const shrink = Math.max(0, 1 - scale);
+      // выделенная часть с новой строки — плюс
+      const accentBreak = lines.some(([a]) => a > 0 && words[a].accent && !words[a - 1].accent) ? 1 : 0;
+      // строка заканчивается концом предложения — плюс
+      const sentenceBreaks = lines.filter(([, b]) => b < n && /[.!?]»?$/.test(words[b - 1].t)).length;
+      const score = -sentenceBreaks * .8 + lines.length * .6 + uneven * 400 + shrink * 20 + soft * 1.6 + lastShort * 3 - accentBreak;
+      if (!best || score < best.score) best = { score, lines: lines.slice(), widest };
+      return;
+    }
+    if (lines.length >= maxLines) return;
+    if (width(start, n) > (free || lines.length <= peak ? L : prev) * (maxLines - lines.length)) return;
+    for (let j = start + 1; j <= n; j++) {
+      const w = width(start, j);
+      const i = lines.length;  // номер строки, которую сейчас набираем
+      if (free) {
+        if (w > L) break;
+      } else if (peak && i > 0 && i <= peak) {
+        // фаза роста: строка должна быть шире предыдущей
+        if (w > L) break;
+        if (w < prev + minStep) continue;
+      } else {
+        // фаза убывания; без пика первые две строки могут быть почти равны
+        const limit = !prev ? L : (!peak && i === 1) ? prev * 1.04 : prev - minStep;
+        if (w > L || w > limit) break;
+      }
+      const last = words[j - 1].t.replace(/[«»„“"()]/g, '');
+      if (j < n && HANG_HARD.test(last)) continue;
+      lines.push([start, j]);
+      walk(j, w, lines, minStep, soft + (j < n && HANG_SOFT.test(last) ? 1 : 0));
+      lines.pop();
+    }
+  }
+  for (const k of [1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.25, 1.3, 1.35, 1.4]) {
+    if (1 / k < minScale - .001) break;
+    L = W * k;
+    steps = 0;
+    walk(0, 0, [], L * .035, 0);
+  }
+  if (!best) { probe.remove(); render([[0, n]]); return; }
+  render(best.lines);
+  el.classList.add('laddered');
+
+  // Если строка не короче предыдущей — чуть сжимаем её трекинг (не больше 0,035em),
+  // чтобы лесенка шла строго от длинной к короткой
+  const lineEls = [...el.querySelectorAll('.ln')];
+  const ws = best.lines.map(([a, b]) => width(a, b));
+  const baseLs = parseFloat(getComputedStyle(el).letterSpacing) || 0;
+  for (let i = 1; i < ws.length && !peak && !free; i++) {
+    const need = ws[i - 1] - base * .1 - ws[i];
+    if (need >= 0) continue;
+    const chars = lineEls[i].textContent.length;
+    const ls = Math.max(-.035, need / chars / base);
+    lineEls[i].style.letterSpacing = `calc(${ls.toFixed(4)}em + ${baseLs}px)`;
+    ws[i] += ls * base * chars;
+  }
+  probe.remove();
+  const scale = Math.min(maxScale, W / Math.max(...ws));
+  if (Math.abs(scale - 1) > .005) el.style.fontSize = (base * scale).toFixed(2) + 'px';
+}
+
+const sub = document.getElementById('vsl-sub');
+function layoutText() {
+  ladder(document.getElementById('vsl-headline'), { maxScale: 1.25, minScale: .6, minFill: .8, maxLines: 5, free: true });
+  ladder(sub, { maxScale: 1, minScale: .86, minFill: .75, maxLines: 4 });
+}
+layoutText();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(layoutText);
+let lastW = innerWidth;
+addEventListener('resize', () => { if (innerWidth !== lastW) { lastW = innerWidth; layoutText(); } });
+
+/* --- Трекинг --- */
+function track(event, extra = {}) {
+  const payload = { event, headline: H, ts: Date.now(), page: location.href, ...extra };
+  // локальный счётчик (видно в ?debug=1)
+  const key = `vsl_stat_${event}_h${H}`;
+  store.set(key, (parseInt(store.get(key), 10) || 0) + 1);
+  // Яндекс.Метрика: общая цель + цель с номером варианта
+  if (CONFIG.ymId && typeof window.ym === 'function') {
+    ym(CONFIG.ymId, 'reachGoal', event, { headline: 'h' + H });
+    ym(CONFIG.ymId, 'reachGoal', `${event}_h${H}`);
+  }
+  // Google Analytics 4, если подключён
+  if (typeof window.gtag === 'function') gtag('event', event, { headline: 'h' + H });
+  // свой вебхук
+  if (CONFIG.webhook) {
+    const body = JSON.stringify(payload);
+    if (!(navigator.sendBeacon && navigator.sendBeacon(CONFIG.webhook, new Blob([body], { type: 'text/plain' })))) {
+      fetch(CONFIG.webhook, { method: 'POST', body, keepalive: true, mode: 'no-cors' }).catch(() => {});
+    }
+  }
+}
+track('headline_view');
+
+/* --- Кнопка --- */
+const cta = document.getElementById('vsl-cta');
+
+(function buildCtaUrl() {
+  if (!CONFIG.ctaUrl) { cta.removeAttribute('href'); cta.setAttribute('role', 'button'); return; }
+  const url = new URL(CONFIG.ctaUrl, location.href);
+  if (CONFIG.passToCta) {
+    url.searchParams.set('vsl_h', H);
+    for (const [k, v] of qs) if (k.startsWith('utm_')) url.searchParams.set(k, v);
+  }
+  cta.href = url.toString();
+})();
+
+cta.addEventListener('click', () => track('cta_click'));
+
+let ctaShown = false;
+function showCta(reason) {
+  if (ctaShown) return;
+  ctaShown = true;
+  cta.hidden = false;
+  if (reason === 'watched') cta.classList.add('reveal');
+  store.set('vsl_unlocked', '1');
+  track('cta_shown', { reason });
+}
+const isReturn =
+  qs.has(CONFIG.returnParam) ||
+  ['utm_source', 'utm_medium', 'utm_campaign'].some(k => CONFIG.returnUtm.test(qs.get(k) || '')) ||
+  store.get('vsl_unlocked') === '1';
+if (isReturn) showCta('return');
+
+
+/* --- Плеер Kinescope --- */
+// Кнопка открывается после CONFIG.revealAt секунд, просмотренных со звуком. Перемотка не засчитывается
+let watched = 0, last = null, muted = true, started = false, duration = 0;
+const marks = new Set();
+window.onKinescopeIframeAPIReady = function (factory) {
+  factory.create('vsl-player', {
+    url: CONFIG.kinescopeUrl,
+    size: { width: '100%', height: '100%' },
+    behavior: { autoPlay: true, muted: true, playsInline: true },
+    ui: { language: 'ru' },
+  }).then(player => {
+    const E = player.Events;
+    const syncMute = () => player.isMuted()
+      .then(m => { muted = m; if (!m && !started) { started = true; track('video_start'); } })
+      .catch(() => { muted = false; });
+    player.on(E.Loaded, e => { if (e.data && e.data.duration) duration = e.data.duration; syncMute(); });
+    player.on(E.VolumeChange, syncMute);
+    player.on(E.Seeked, () => { last = null; });
+    player.on(E.TimeUpdate, e => {
+      const t = e.data && e.data.currentTime;
+      if (t == null) return;
+      if (last != null && !muted) { const d = t - last; if (d > 0 && d < 1.5) watched += d; }
+      last = t;
+      if (watched >= CONFIG.revealAt) showCta('watched');
+      if (started && duration) for (const m of [25, 50, 75]) if (t / duration * 100 >= m && !marks.has(m)) { marks.add(m); track('video_' + m); }
+    });
+    player.on(E.Ended, () => { track('video_end'); showCta('watched'); });
+  });
+};
+const tag = document.createElement('script');
+tag.src = 'https://player.kinescope.io/latest/iframe.player.js';
+document.head.appendChild(tag);
+})();
+</script>
+</body>
+</html>
